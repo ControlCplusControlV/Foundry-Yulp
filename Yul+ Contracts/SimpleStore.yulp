@@ -1,0 +1,28 @@
+object "SimpleStore" {
+  code {
+    datacopy(0, dataoffset("Runtime"), datasize("Runtime"))
+    return(0, datasize("Runtime"))
+  }
+  object "Runtime" {
+    code {
+      calldatacopy(0, 0, 36) // write calldata to memory
+
+      mstruct StoreCalldata( // Custom addressable calldata structure
+        sig: 4,
+        val: 32
+      )
+
+      switch StoreCalldata.sig(0) // select signature from memory (at position 0)
+
+      case sig"function store(uint256 val)" { // new signature method
+        sstore(0, StoreCalldata.val(0)) // sstore calldata value
+        log2(0, 0, topic"event Store(uint256 value)", StoreCalldata.val(0))
+      }
+
+      case sig"function get() returns (uint256)" {
+        mstore(100, sload(0))
+        return (100, 32)
+      }
+    }
+  }
+}

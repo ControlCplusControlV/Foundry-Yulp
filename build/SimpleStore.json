@@ -1,0 +1,50 @@
+{
+    "_format": "Yul+ Artifact Format v0.0.1",
+    "contractName": [
+        "SimpleStore",
+        "yulp"
+    ],
+    "abi": [
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "Store",
+            "type": "event"
+        },
+        {
+            "inputs": [],
+            "name": "get",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "val",
+                    "type": "uint256"
+                }
+            ],
+            "name": "store",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "bytecode": "0x605780600c6000396000f3fe60006024818037805160e01c80636057361d14602a57636d4ce63c14602057005b5460645260206064f35b507f69404ebde4a368ae324ed310becfefc3edfe9e5ebca74464e37ffffd8309a3c16004519182815580a200",
+    "deployedBytecode": "0x60006024818037805160e01c80636057361d14602a57636d4ce63c14602057005b5460645260206064f35b507f69404ebde4a368ae324ed310becfefc3edfe9e5ebca74464e37ffffd8309a3c16004519182815580a200"
+}
