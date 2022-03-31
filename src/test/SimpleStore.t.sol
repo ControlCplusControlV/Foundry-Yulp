@@ -7,10 +7,21 @@ interface CheatCodes {
     function ffi(string[] calldata) external returns (bytes memory);
 }
 
+interface SimpleStore {
+    function store(uint256 val) external;
+    function get() external returns (uint256);
+}
+
 contract SandwichTest is DSTest {
 
-    function test_yulp_sandwich_frontslice() public {
-        string memory bytecode = getSandwichYulpBytecode();
+    function test_simple_store() public {
+        bytes memory bytecode = getSandwichYulpBytecode();
+        address deployed_contract = deployContract(bytecode);
+        SimpleStore(deployed_contract).store(1000);
+        uint256 stored_val = SimpleStore(deployed_contract).get();
+
+        assertEq(1000, stored_val, "Contract Failed to Store Value");
+        
 
     }
 
@@ -25,7 +36,7 @@ contract SandwichTest is DSTest {
         }
     }
 
-    function getSandwichYulpBytecode() internal returns (string memory) {
+    function getSandwichYulpBytecode() internal returns (bytes memory) {
         CheatCodes cheatCodes = CheatCodes(HEVM_ADDRESS);
 
         string[] memory cmds = new string[](3);
@@ -33,7 +44,7 @@ contract SandwichTest is DSTest {
         cmds[1] = "SimpleStore";
         cmds[2] = "bytecode";
 
-        string memory bytecode = abi.decode(cheatCodes.ffi(cmds), (string));
+        bytes memory bytecode = abi.decode(cheatCodes.ffi(cmds), (bytes));
         return bytecode;
     }
 }
