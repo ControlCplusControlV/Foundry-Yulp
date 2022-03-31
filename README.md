@@ -19,10 +19,15 @@ yul-log
 then you can test them via
 
 ```
-forge compile
+forge build
 forge test --ffi
 ```
 
+then install this template via
+
+```
+forge install ControlCplusControlV/Foundry-Yulp-Template
+```
 ## Writing Tests
 
 For each project it's pretty simple (given you have the knowledge to write Yul), just import the bytecode and deploy the contract at the start of each test. From there you can interact with them like normal. To do that just use these 2 functions in each test, in this case `SimpleStore` is the name of the contract being tests
