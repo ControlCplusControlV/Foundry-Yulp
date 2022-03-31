@@ -12,10 +12,10 @@ interface SimpleStore {
     function get() external returns (uint256);
 }
 
-contract SandwichTest is DSTest {
+contract SimpleStoreTest is DSTest {
 
     function test_simple_store() public {
-        bytes memory bytecode = getSandwichYulpBytecode();
+        bytes memory bytecode = getSimpleStoreBytecode();
         address deployed_contract = deployContract(bytecode);
         SimpleStore(deployed_contract).store(1000);
         uint256 stored_val = SimpleStore(deployed_contract).get();
@@ -36,7 +36,7 @@ contract SandwichTest is DSTest {
         }
     }
 
-    function getSandwichYulpBytecode() internal returns (bytes memory) {
+    function getSimpleStoreBytecode() internal returns (bytes memory) {
         CheatCodes cheatCodes = CheatCodes(HEVM_ADDRESS);
 
         string[] memory cmds = new string[](3);
