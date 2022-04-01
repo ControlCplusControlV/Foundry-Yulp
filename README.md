@@ -1,6 +1,6 @@
 # Foundry-Yulp-Template
 
-A Foundry Template to compile and test your Yul+ Contracts with Foundry.
+A Foundry Template to compile and test your Yul+ Contracts.
 
 ## Installation / Setup
 
