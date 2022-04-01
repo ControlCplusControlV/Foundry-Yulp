@@ -10,7 +10,7 @@ Installation is only two easy steps. First, clone this repo.
 https://github.com/ControlCplusControlV/Foundry-Yulp-Template.git
 ```
 
-Next, make sure you have [Yul-Log]() installed. Yul-Log is a Yul/Yul+ toolchain that enables Yul+ contracts to be compiled into bytecode.
+Next, make sure you have [Yul-Log](https://github.com/ControlCplusControlV/Yul-Log) installed. Yul-Log is a Yul/Yul+ toolchain that enables Yul+ contracts to be compiled into bytecode.
 
 ```
 npm i -g yul-log  
