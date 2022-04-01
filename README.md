@@ -79,7 +79,6 @@ Next, here is an example interface for the SimpleStore contract.
 
 interface SimpleStore {
     function store(uint256 val) external;
-
     function get() external returns (uint256);
 }
 ```
