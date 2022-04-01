@@ -1,8 +1,6 @@
 {
   "abi": [
     {
-      "type": "function",
-      "name": "ffi",
       "inputs": [
         {
           "internalType": "string[]",
@@ -10,6 +8,7 @@
           "type": "string[]"
         }
       ],
+      "name": "ffi",
       "outputs": [
         {
           "internalType": "bytes",
@@ -17,7 +16,8 @@
           "type": "bytes"
         }
       ],
-      "stateMutability": "nonpayable"
+      "stateMutability": "nonpayable",
+      "type": "function"
     }
   ],
   "bytecode": {
@@ -25,7 +25,7 @@
     "sourceMap": "",
     "linkReferences": {}
   },
-  "deployed_bytecode": {
+  "deployedBytecode": {
     "object": "0x",
     "sourceMap": "",
     "linkReferences": {}

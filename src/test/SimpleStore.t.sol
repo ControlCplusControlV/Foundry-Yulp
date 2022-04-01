@@ -2,49 +2,19 @@
 pragma solidity >=0.8.0;
 
 import "./lib/test.sol";
-
-interface CheatCodes {
-    function ffi(string[] calldata) external returns (bytes memory);
-}
-
-interface SimpleStore {
-    function store(uint256 val) external;
-    function get() external returns (uint256);
-}
+import "../SimpleStore.sol";
+import "./lib/YulpDeployer.sol";
 
 contract SimpleStoreTest is DSTest {
+    YulpDeployer yulpDeployer = new YulpDeployer();
 
-    function test_simple_store() public {
-        bytes memory bytecode = getSimpleStoreBytecode();
-        address deployed_contract = deployContract(bytecode);
-        SimpleStore(deployed_contract).store(1000);
-        uint256 stored_val = SimpleStore(deployed_contract).get();
+    SimpleStore simpleStore;
 
-        assertEq(1000, stored_val, "Contract Failed to Store Value");
-        
-
+    function setUp() public {
+        simpleStore = SimpleStore(yulpDeployer.deployContract("SimpleStore"));
     }
 
-    // ******** Internal functions ********
-
-    function deployContract(bytes memory code) internal returns (address addr) {
-        assembly {
-            addr := create(0, add(code, 0x20), mload(code))
-            if iszero(addr) {
-                revert (0, 0)
-            }
-        }
-    }
-
-    function getSimpleStoreBytecode() internal returns (bytes memory) {
-        CheatCodes cheatCodes = CheatCodes(HEVM_ADDRESS);
-
-        string[] memory cmds = new string[](3);
-        cmds[0] = "yul-log";
-        cmds[1] = "SimpleStore";
-        cmds[2] = "bytecode";
-
-        bytes memory bytecode = abi.decode(cheatCodes.ffi(cmds), (bytes));
-        return bytecode;
+    function testGet() public {
+        simpleStore.get();
     }
 }
