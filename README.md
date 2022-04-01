@@ -19,8 +19,6 @@ npm i -g yul-log
 Now you are all set up and ready to go!
 
 <br>
-<br>
-
 
 ## Compiling/Testing Yul+ Contracts
 
