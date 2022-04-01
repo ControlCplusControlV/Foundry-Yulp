@@ -88,9 +88,9 @@ Lastly, here is the test file that deploys the Yul+ contract and tests the `get(
 ### SimpleStore Test
 
 ```js
-import "./lib/test.sol";
+import "../../lib/ds-test/test.sol";
 import "../SimpleStore.sol";
-import "./lib/YulpDeployer.sol";
+import "../../lib/YulpDeployer.sol";
 
 
 contract SimpleStoreTest is DSTest {
