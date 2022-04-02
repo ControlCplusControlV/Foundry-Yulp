@@ -83,7 +83,7 @@ interface SimpleStore {
 }
 ```
 
-Lastly, here is the test file that deploys the Yul+ contract and tests the `get()` function. You can see that this file imports the `SimpleStore.sol` interface as well as the `YulpDeployer.sol` contract. To deploy the contract, simply create a new instance of `YulpDeployer` and call `yulpDeployer.deployContract(fileName)` method, passing in the file name of the contract you want to deploy. In this example, we pass in `SimpleStore` to deploy the `SimpleStore.yulp` contract. This function returns the address that the contract was deployed to, which we can use to initialize the SimpleStore interface. With that, your Yul+ contract can now be used within Foundry like any other Solidity contract!
+Lastly, here is the test file that deploys the Yul+ contract and tests the `get()` function. You can see that this file imports the `SimpleStore.sol` interface as well as the `YulpDeployer.sol` contract. To deploy the contract, simply create a new instance of `YulpDeployer` and call `yulpDeployer.deployContract(fileName)` method, passing in the file name of the contract you want to deploy. In this example, we pass in `SimpleStore` to deploy the `SimpleStore.yulp` contract. This function returns the address that the contract was deployed to, which we can use to initialize the SimpleStore interface. With that, your Yul+ contract can now be used within Foundry like any other Solidity contract. To test any Yul+ contract deployed with YulpDeployer, simply run `forge test --ffi`. You can use this command with any additional flags. For example: `forge test --ffi -f <url> -vvvv`.
 
 ### SimpleStore Test
 
