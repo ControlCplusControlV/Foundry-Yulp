@@ -1,4 +1,4 @@
-# Foundry-Yulp-Template
+# Foundry-Yul+-Template
 
 A Foundry Template to compile and test your Yul+ Contracts.
 
