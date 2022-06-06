@@ -1,4 +1,4 @@
-# Foundry x Yulp
+# Foundry x Yul+
 
 A Foundry template to compile and test Yul+ contracts. 
 
@@ -38,7 +38,7 @@ Then set up a new Foundry project with the following command (replacing `yulp_pr
 forge init --template https://github.com/ControlCplusControlV/Foundry-Yulp yulp_project_name
 ```
 
-Now you are all set up and ready to go! Below is a quick example of how to set up, deploy and test Yulp contracts.
+Now you are all set up and ready to go! Below is a quick example of how to set up, deploy and test Yul+ contracts.
 
 
 <br>
@@ -50,9 +50,9 @@ Now you are all set up and ready to go! Below is a quick example of how to set u
 The YulpDeployer is a pre-built contract that takes a filename and deploys the corresponding Yul+ contract, returning the address that the bytecode was deployed to. If you want, you can check out [how the YulpDeployer works under the hood](https://github.com/ControlCplusControlV/Foundry-Yulp/blob/main/src/test/lib/YulpDeployer.sol). Below is a quick example of how to setup and deploy a SimpleStore contract written in Yul+.
 
 
-## SimpleStore.Yulp
+## SimpleStore.yulp
 
-Here is a simple Yulp contract called `SimpleStore.Yulp`, which is stored within the `Yulp_contracts` directory. Make sure to put all of your `.Yulp` files in the `Yul+ Contracts` directory so that the Yul+ compiler knows where to look when compiling.
+Here is a simple Yul+ contract called `SimpleStore.Yulp`, which is stored within the `Yulp_contracts` directory. Make sure to put all of your `.yulp` files in the `Yul+ Contracts` directory so that the Yul+ transpiler knows where to look when transpiling.
 
 ```js
 object "SimpleStore" {
@@ -107,11 +107,11 @@ interface SimpleStore {
 
 First, the file imports `ISimpleStore.sol` as well as the `YulpDeployer.sol` contract.
 
-To deploy the contract, simply create a new instance of `YulpDeployer` and call `YulpDeployer.deployContract(fileName)` method, passing in the file name of the contract you want to deploy. In this example, `SimpleStore` is passed in to deploy the `SimpleStore.Yulp` contract. The `deployContract` function compiles the Yulp contract and deploys the newly compiled bytecode, returning the address that the contract was deployed to.
+To deploy the contract, simply create a new instance of `YulpDeployer` and call `YulpDeployer.deployContract(fileName)` method, passing in the file name of the contract you want to deploy. In this example, `SimpleStore` is passed in to deploy the `SimpleStore.Yulp` contract. The `deployContract` function compiles the Yul+ contract and deploys the newly compiled bytecode, returning the address that the contract was deployed to.
 
-The deployed address is then used to initialize the ISimpleStore interface. Once the interface has been initialized, your Yulp contract can be used within Foundry like any other Solidity contract.
+The deployed address is then used to initialize the ISimpleStore interface. Once the interface has been initialized, your Yul+ contract can be used within Foundry like any other Solidity contract.
 
-To test any Yulp contract deployed with YulpDeployer, simply run `forge test --ffi`. You can use this command with any additional flags. For example: `forge test --ffi -f <url> -vvvv`.
+To test any Yul+ contract deployed with YulpDeployer, simply run `forge test --ffi`. You can use this command with any additional flags. For example: `forge test --ffi -f <url> -vvvv`.
 
 ```js
 
